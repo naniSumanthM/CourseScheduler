@@ -6,30 +6,28 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<h:head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"/>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-</h:head>
-
 <h:body>
-		
-		<h:form>
-		<p:dataTable value="#{json.items}" var="x" >
-		 	<p:column headerText="Name">
+	<ui:composition template="template.xhtml">
+		<ui:define name="content">
+			<center>
+			 <h:form>
+				<p:dataTable value="#{json.items}" var="x">
+					<p:column headerText="Name">
 		 	#{x.name}
 		 	</p:column>
-		 	<p:column headerText="Email">
+					<p:column headerText="Email">
 		 	#{x.email}
 		 	</p:column>
-		 	<p:column headerText="Phone">
+					<p:column headerText="Phone">
 		 	#{x.phone}
 		 	</p:column>
-		 	<p:column headerText="Website">
+					<p:column headerText="Website">
 		 	#{x.website}
 		 	</p:column>
-		</p:dataTable>
-		</h:form>
-		
+				</p:dataTable>
+			</h:form>
+			</center>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
