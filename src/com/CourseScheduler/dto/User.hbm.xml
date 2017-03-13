@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.CourseScheduler.dto.User" table="users" catalog="coursescheduler">
+        <id name="guid" type="java.lang.Integer">
+            <column name="User_Id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="FirstName" length="255" not-null="false" unique="false" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LastName" length="255" not-null="false" unique="false" />
+        </property>
+        <property name="emailId" type="string">
+            <column name="EmailId" length="255" not-null="false" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="255" not-null="false" unique="false" />
+        </property>    
+        <property name="major" type="string">
+            <column name="Major" length="255" not-null="false" unique="false" />
+        </property>
+        <set name="schedule" table="schedules" cascade="all">
+			<key column="USER_ID" />
+			<many-to-many column="COURSE_ID" unique="true" class="com.CourseScheduler.dto.Course" />
+		</set>
+    </class>
+</hibernate-mapping>

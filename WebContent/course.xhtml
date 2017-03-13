@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="title">Course Info - Class Scheduler</ui:define>
+		<ui:define name="content">
+			<h:form id="addCourseForm">
+				<!-- <p:growl id="growl" showDetail="true" sticky="false" /> -->
+				<p:panel id="addCoursePanel" header="Course Info">
+
+					<!-- Course Info Grid -->
+					<h:panelGrid columns="2" cellpadding="5">
+						<h:outputLabel value="Subject: " />
+						<h:outputText value="#{searchCourses.selectedCourse.subject}" />
+
+						<h:outputLabel value="Number: " />
+						<h:outputText value="#{searchCourses.selectedCourse.number}" />
+
+						<h:outputLabel value="Name: " />
+						<h:outputText value="#{searchCourses.selectedCourse.name}" />
+
+						<h:outputLabel value="Instructor: " />
+						<h:outputText value="#{searchCourses.selectedCourse.instructor}" />
+					</h:panelGrid>
+
+					<br />
+					<h:outputLabel for="instructor" value="YouTube stuff: " />
+					<p>table with top5 youtube links relating to the course</p>
+					<p>table with top5 amazon textbook links relating to the course</p>
+					<!-- Need to be able to consume JSON feed according to subject -->
+
+					<!-- Buttons -->
+					<p:commandButton id="addCourseBtn" value="Add to Schedule"
+						icon="ui-icon-plus" style="margin:0"
+						actionListener="#{userSchedule.addCourse}" update=":growl"
+						action="searchcourses" ajax="false" />
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

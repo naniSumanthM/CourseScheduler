@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="title">Sign Up - Class Scheduler</ui:define>
+		<ui:define name="content">
+			<h:form id="signUpForm">
+				<!-- <p:growl id="growl" showDetail="true" sticky="false" /> -->
+				<p:panel id="signUpPanel" header="Sign Up">
+				
+					<!-- Input -->
+					<h:panelGrid columns="3" cellpadding="5">
+					
+						<h:outputLabel for="firstName" value="First Name: *" />
+						<p:inputText id="firstName" value="#{user.firstName}" required="true"
+							label="First Name" />
+						<p:message for="firstName" />
+
+						<h:outputLabel for="lastName" value="Last Name: *" />
+						<p:inputText id="lastName" value="#{user.lastName}" required="true"
+							label="Last Name" />
+						<p:message for="lastName" />
+
+						<h:outputLabel for="emailId" value="E-mail: *" />
+						<p:inputText id="emailId" value="#{user.emailId}" required="true"
+							label="E-mail" />
+						<p:message for="emailId" />
+
+						<h:outputLabel for="password" value="Password: *" />
+						<p:password id="password" value="#{user.password}" match="confirmPassword" required="true"
+							label="Password" />
+						<p:message for="password" />
+
+						<h:outputLabel for="confirmPassword" value="Confirm Password: *" />
+						<p:password id="confirmPassword" value="#{user.confirmPassword}" required="true"
+							label="Confirm Password" />
+						<p:message for="confirmPassword" />
+
+						<h:outputLabel for="major" value="Major: *" />
+						<p:inputText id="major" value="#{user.major}" required="true"
+							label="Major" />
+						<p:message for="major" />
+					</h:panelGrid>
+
+					<!-- Buttons -->
+					<p:commandButton id="signUpBtn" value="Sign Up"
+						icon="ui-icon-check" style="margin:0"
+						ajax="false"
+						actionListener="#{addUser.execute}" update=":growl"
+						action="AfterSignUp" />
+					<br />
+					<br />
+					<p:commandLink value="Back to login" action="index" immediate="true" />
+					
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

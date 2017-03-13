@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="title">Search - Class Scheduler</ui:define>
+		<ui:define name="content">
+			<p:dataTable id="showSchedule" var="scheduleResult"
+				value="#{auth.schedule.toArray()}">
+				<f:facet name="header">Your Schedule</f:facet>
+				<!-- <p:ajax event="rowSelect" listener="#{schedule.onRowSelect}" update=":growl" /> -->
+
+				<p:column headerText="Subject">
+					<h:outputText value="#{scheduleResult.subject}" />
+				</p:column>
+				<p:column headerText="Number">
+					<h:outputText value="#{scheduleResult.number}" />
+				</p:column>
+				<p:column headerText="Name">
+					<h:outputText value="#{scheduleResult.name}" />
+				</p:column>
+				<p:column headerText="Instructor">
+					<h:outputText value="#{scheduleResult.instructor}" />
+				</p:column>
+			</p:dataTable>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

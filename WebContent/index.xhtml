@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="title">Class Scheduler</ui:define>
+		<ui:define name="content">
+			<h:form id="loginForm">
+				<!-- <p:growl id="growl" showDetail="true" sticky="false" /> -->
+				<p:panel id="loginPnl" header="Login" style="margin-bottom:10px;">
+				
+					<!-- Input -->
+					<h:panelGrid columns="3" cellpadding="5">
+						<h:outputLabel for="emailId" value="E-mail: *" />
+						<p:inputText id="emailId" value="#{authenticate.email}" required="true"
+							label="E-mail">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="emailId" />
+
+						<h:outputLabel for="password" value="Password: *" />
+						<p:password id="password" value="#{authenticate.password}" required="true"
+							label="Password" />
+						<p:message for="password" />
+					</h:panelGrid>
+					
+					<!-- Buttons -->
+					<p:commandButton id="loginBtn" value="Login" icon="ui-icon-check"
+						style="margin:0" action="#{authenticate.login}" ajax="false" update=":growl" />
+					<br />
+					<br />
+					<span>Don't have an account? </span>
+					<p:commandLink value="Sign Up" action="signup" immediate="true" />
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

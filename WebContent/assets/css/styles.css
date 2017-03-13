@@ -1,0 +1,25 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Arial,sans-serif;
+}
+
+.header {
+	padding-left: 1em;
+}
+
+.footer {
+	padding-top: 4em;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+#content {
+	padding: 1em;
+}
+
+.printonly {
+	display:none;
+}

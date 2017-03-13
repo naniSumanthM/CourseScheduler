@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14864946895080" configfile="/CourseScheduler/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="338" y="178" id="pf14865211158720" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf14870417623950 pf14873161904820" inlinks="pf14873590386790" path="index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="signup.xhtml" x="122" y="178" id="pf14870417623961" referenceLink="//@navigationRule.1/@fromViewId|" inlinks="pf14870417623950" path="signup.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="searchcourses.xhtml" id="pf14873161904834" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14873161904820 pf14873590410492" path="searchcourses.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="signup.xhtml" id="pf14873590386791" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14873590386790" path="/signup.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="searchcourses.xhtml" id="pf14873590410493" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14873590410492" path="/searchcourses.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf14873590472424" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf14873590472425" path="/*"/>
+  <nodes xsi:type="pageflow:PFPage" name="logout.xhtml" id="pf14873590472426" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf14873590472425" path="logout.xhtml"/>
+  <links id="pf14870417623950" target="pf14870417623961" source="pf14865211158720" outcome="signup"/>
+  <links id="pf14873161904820" target="pf14873161904834" source="pf14865211158720" outcome="authenticate"/>
+  <links id="pf14873590386790" target="pf14865211158720" source="pf14873590386791" outcome="AfterSignUp"/>
+  <links id="pf14873590410492" target="pf14873161904834" source="pf14873590410493" outcome="search"/>
+  <links id="pf14873590472425" target="pf14873590472426" source="pf14873590472424" outcome="logout"/>
+</pageflow:Pageflow>
